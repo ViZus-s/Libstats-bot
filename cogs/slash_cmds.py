@@ -63,7 +63,7 @@ class slashs(commands.Cog):
 
         embed = disnake.Embed(
             title="Bot information",
-            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n:gear: **Bot version**: `???`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`",
+            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n:gear: **Bot version**: `0.8`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`\n:envelope_with_arrow: **Last update**: `Open Source?`",
             color=glcolor)
             
         embed.set_author(name=inter.author.name, icon_url=Member.avatar.url)
