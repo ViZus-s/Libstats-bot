@@ -9,5 +9,5 @@ The bot uses the BeautifulSoup library to get data from these sites:
 Github = [https://git.disnake.dev/disnake]  
 PyPi = [https://pypi.org/project/disnake]
 
-Each time we will experiment to make the bot more convenient, optimized, faster.
+Each time we will experiment to make the bot more convenient, optimized, faster.  
 If you want to support this work, you can leave a star :)
