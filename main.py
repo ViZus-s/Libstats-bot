@@ -4,7 +4,7 @@ import disnake
 from disnake.ext import commands
 # -------------------------- global color
 glcolor = 0x060a5d
-# -------------------------- cogs
+# -------------------------- cogs list
 cogss = {
     'server',
     'events',
