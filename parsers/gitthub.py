@@ -18,3 +18,9 @@ def parsing_git():
             "issues": issues, 
             "pull requests": pull_requests.replace("\n", "")[13:], 
             "last commit": last_commit}
+
+def parsing_update():
+    response = req.get("https://github.com/ViZus-s/Disnake-Statistics-Bot/commit/")
+    soup = BeautifulSoup(response.content, 'html.parser')
+    return soup.find('div', {"class":"commit-title markdown-title"}).text.strip()
+    
