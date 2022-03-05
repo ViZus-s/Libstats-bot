@@ -1,13 +1,22 @@
 # libs
 from bs4 import BeautifulSoup
 import requests as req
+import json
 # parse
 
 def parsing_pypi():
-    response = req.get("https://pypi.org/project/disnake/")
-    soup = BeautifulSoup(response.content, 'html.parser')
-
-    last_version = soup.find("h1", {"class":"package-header__name"}).text.strip().rstrip()
-    status = soup.find("a", {"href":"/search/?c=Development+Status+%3A%3A+5+-+Production%2FStable"}).text.strip()
-    
-    return last_version[8:], status
+    response = req.get("https://api.pepy.tech/api/v2/projects/disnake").text
+    reqs = json.loads(response)
+    try:
+        last_day = str(date.today())
+        downloads_list = list(reqs["downloads"][last_day])
+    except KeyError:
+        last_day = str(date.today())[:-1] + str(int(str(date.today())[-1]) - 1)
+        downloads_list = reqs["downloads"][last_day]
+    items_list = list(downloads_list.values())
+    return {
+        "last_version": reqs['versions'][-1],
+        "total_downloads": reqs['total_downloads'],
+        "downloads_sum": sum(items_list),
+        "last_version_downloads": downloads_list[reqs['versions'][-1]],
+    }
