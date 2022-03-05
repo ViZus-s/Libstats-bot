@@ -19,4 +19,5 @@ def parsing_pypi():
         "total_downloads": reqs['total_downloads'],
         "downloads_sum": sum(items_list),
         "last_version_downloads": downloads_list[reqs['versions'][-1]],
+        "set": last_day,
     }
