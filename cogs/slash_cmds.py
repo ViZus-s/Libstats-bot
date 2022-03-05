@@ -37,7 +37,7 @@ class slashs(commands.Cog):
             get_data = parsing_pypi()
             embed2 = disnake.Embed(
                 title="PyPi Disnake Statistics",
-                description=f":bulb: **Latest Version**: `{get_data['last_version']}`\n:bar_chart: **Last version downloads**: `{get_data['last_version_downloads']}`\n:chart_with_upwards_trend: **Total downloads**: `{get_data['total_downloads']}`\n:calendar_spiral: **Downloads on {get_data['set']}: `{get_data['last_version_downloads']}`",
+                description=f":bulb: **Latest Version**: `{get_data['last_version']}`\n:bar_chart: **Last version downloads**: `{get_data['last_version_downloads']}`\n:chart_with_upwards_trend: **Total downloads**: `{get_data['total_downloads']}`\n:calendar_spiral: **Downloads on {get_data['set']}**: `{get_data['downloads_sum']}`",
                 color=glcolor)
             embed2.set_author(name=inter.author.name, icon_url=Member.avatar.url)
             await inter.send(embed=embed2)
