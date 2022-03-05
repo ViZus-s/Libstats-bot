@@ -14,3 +14,4 @@ reportlab==3.5.34
 requests==2.22.0
 requests-file==1.4.3
 requests-unixsocket==0.2.0
+json==2.0.9
