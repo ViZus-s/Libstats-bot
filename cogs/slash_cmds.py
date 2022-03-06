@@ -13,7 +13,7 @@ class slashs(commands.Cog):
     @commands.slash_command(
         name="stats",
         description="Wanna check statistic? Use this command!",
-        guild_ids=[808030843078836254])
+        )
     async def stats(self, inter: ApplicationCommandInteraction, option: str = commands.Param(choices=['pypi', 'github'])):
         if option == 'github':
             Member = inter.author
@@ -45,7 +45,7 @@ class slashs(commands.Cog):
     @commands.slash_command(
         name="help",
         description="Shows bot commands",
-        guild_ids=[808030843078836254])
+        )
     async def help(self, inter: ApplicationCommandInteraction):
 
         embed2 = disnake.Embed(
@@ -57,7 +57,7 @@ class slashs(commands.Cog):
     @commands.slash_command(
         name="info",
         description="Shows the bot info",
-        guild_ids=[808030843078836254])
+        )
     async def info(self, inter: ApplicationCommandInteraction):
         Member = inter.author
 
