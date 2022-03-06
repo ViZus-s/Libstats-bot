@@ -14,8 +14,8 @@ cogss = {
 # -------------------------- bot settings
 bot = commands.Bot(command_prefix="'",
                 intents=disnake.Intents.all(),
-                activity=disnake.Game("Collecting information!"),
-                test_guilds=[808030843078836254])
+                activity=disnake.Game("Collecting information!")
+                )
 bot.remove_command("help")
 # -------------------------- set
 if __name__ == '__main__':
