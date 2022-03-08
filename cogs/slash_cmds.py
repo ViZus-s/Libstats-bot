@@ -6,7 +6,7 @@ from main import glcolor
 from parsers.gitthub import parsing_git, parsing_update
 from parsers.pypi import parsing_pypi
 
-class slashs(commands.Cog):
+class Slashs(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
@@ -25,7 +25,7 @@ class slashs(commands.Cog):
             pull = get_data["pull requests"]
             lastcom = get_data["last commit"]
             
-            embed1 = disnake.Embed(title="GitHub Statistics [TEST]",
+            embed1 = disnake.Embed(title="GitHub Disnake Statistics",
                             description=f":star: **stars**: `{stars}`\n\n:cd: **forks**: `{forks}`\n\n:bangbang: **issues**: `{issues}`\n\n:satellite: **pull requests**: `{pull}`\n\n:hourglass: **last commit**: `{lastcom}`",
                             color=glcolor)
             
@@ -63,7 +63,7 @@ class slashs(commands.Cog):
 
         embed = disnake.Embed(
             title="Bot information",
-            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n:gear: **Bot version**: `0.9`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`\n:envelope_with_arrow: **Last update**: `{parsing_update()}`\n:open_file_folder: **Bot github**: ||https://github.com/ViZus-s/Disnake-Statistics-Bot||",
+            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n:gear: **Bot version**: `1.0`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`\n:envelope_with_arrow: **Last update**: `{parsing_update()}`\n:open_file_folder: **Bot github**: ||https://github.com/ViZus-s/Disnake-Statistics-Bot||",
             color=glcolor)
             
         embed.set_author(name=inter.author.name, icon_url=Member.avatar.url)
@@ -71,4 +71,4 @@ class slashs(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(slashs(bot))
+    bot.add_cog(Slashs(bot))
