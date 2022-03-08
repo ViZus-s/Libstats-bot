@@ -3,7 +3,7 @@ import os
 import disnake
 from disnake.ext import commands
 # -------------------------- global color
-glcolor = 0x2c81d1
+glcolor = 0x2c6bd0
 # -------------------------- cogs list
 cogss = {
     'server',
