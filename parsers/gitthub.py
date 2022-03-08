@@ -14,11 +14,11 @@ def parsing_git():
     last_commit = str(soup.find("relative-time")).split(
         ">", maxsplit=1)[0].split("datetime=")[-1][1:-2].replace("T", " ")
 
-    return print({"stars": stars,
+    return {"stars": stars,
                   "forks": forks,
                   "issues": issues,
                   "pull requests": pull_requests.replace("\n", "")[13:],
-                  "last commit": last_commit})
+                  "last commit": last_commit}
 
 
 def parsing_update():
