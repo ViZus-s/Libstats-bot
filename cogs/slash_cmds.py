@@ -33,6 +33,7 @@ class Slashs(commands.Cog):
             await inter.send(embed=embed1)
             
         elif option == 'pypi':
+            """
             Member = inter.author
             get_data = parsing_pypi()
             embed2 = disnake.Embed(
@@ -41,6 +42,8 @@ class Slashs(commands.Cog):
                 color=glcolor)
             embed2.set_author(name=inter.author.name, icon_url=Member.avatar.url)
             await inter.send(embed=embed2)
+            """
+            await inter.send("The pypi command is not working right now, forgive us for that, the problem was identified in the api.")
 
     @commands.slash_command(
         name="help",
