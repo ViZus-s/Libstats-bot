@@ -26,7 +26,7 @@ class Slashs(commands.Cog):
             lastcom = get_data["last commit"]
             
             embed1 = disnake.Embed(title="GitHub Disnake Statistics",
-                            description=f":star: **stars**: `{stars}`\n\n:cd: **forks**: `{forks}`\n\n:bangbang: **issues**: `{issues}`\n\n:satellite: **pull requests**: `{pull}`\n\n:hourglass: **last commit**: `{lastcom}`",
+                            description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:satellite: **pull requests**: `{pull}`\n:hourglass: **last commit**: `{lastcom}`",
                             color=glcolor)
             
             embed1.set_author(name=inter.author.name, icon_url=Member.avatar.url)
@@ -38,7 +38,7 @@ class Slashs(commands.Cog):
                 get_data = parsing_pypi()
                 embed2 = disnake.Embed(
                     title="PyPi Disnake Statistics",
-                    description=f":bulb: **Latest Version**: `{get_data['last_version']}`\n:bar_chart: **Last version downloads**: `{get_data['last_version_downloads']}`\n:chart_with_upwards_trend: **Total downloads**: `{get_data['total_downloads']}`\n:calendar_spiral: **Downloads on {get_data['set']}**: `{get_data['downloads_sum']}`",
+                    description = f":bulb: **Latest Version**: `{get_data['last_version']}`\n\n:pencil: **Downloads last day:** {get_data['downloads'][0]}\n:pencil: **Downloads last week:** {get_data['downloads'][1]}\n:pencil: **Downloads last month:** {get_data['downloads'][2]}",
                     color=glcolor)
                 embed2.set_author(name=inter.author.name, icon_url=Member.avatar.url)
                 await inter.send(embed=embed2)
