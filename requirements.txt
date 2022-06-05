@@ -2,7 +2,7 @@ aiohttp==3.8.1
 aiosignal==1.2.0
 async-timeout==4.0.2
 beautifulsoup4==4.8.2
-disnake==2.4.0
+disnake==2.5.0
 httplib2==0.14.0
 llvmlite==0.38.0
 lxml==4.5.0
@@ -14,3 +14,4 @@ reportlab==3.5.34
 requests==2.22.0
 requests-file==1.4.3
 requests-unixsocket==0.2.0
+grequests==0.6.0
