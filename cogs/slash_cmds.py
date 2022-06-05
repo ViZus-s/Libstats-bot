@@ -40,10 +40,10 @@ class Slashs(commands.Cog):
                 last_version1 = get_data[0]['last_version']
                 downloads1 = get_data[0]['downloads']
                 last_version2 = get_data[1]['last_version']
-                last_version_downloads2 = get_data[1]["last_version_downloads"]
+                last_version_downloads2 = get_data[1]['last_version_downloads']
                 total_downloads2 = get_data[1]['total_downloads']
-                set2 = get_data[1]["set"]
-                downloads_sum2 = get_data[1]["set"]
+                set2 = get_data[1]['set']
+                downloads_sum2 = get_data[1]['downloads_sum']
                 
                 embed2 = disnake.Embed(
                     title="PyPi Disnake Statistics",
