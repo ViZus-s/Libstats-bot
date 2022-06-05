@@ -1,4 +1,8 @@
-# libs
+# monkey
+import gevent.monkey
+gevent.monkey.patch_all()
+
+#libs
 from bs4 import BeautifulSoup
 from datetime import date
 import grequests as req
