@@ -38,18 +38,7 @@ class Slashs(commands.Cog):
                 get_data = parsing_pypi()
                 embed2 = disnake.Embed(
                     title="PyPi Disnake Statistics",
-                    description=f"""
-                    :satellite: `pypistats`\n
-                    :bulb: **Latest Version**: {get_data[0]['last_version']}\n
-                    :pencil: **Downloads last day:** {get_data[0]['downloads'][0]}\n
-                    :pencil: **Downloads last week:** {get_data[0]['downloads'][1]}\n
-                    :pencil: **Downloads last month:** {get_data[0]['downloads'][2]}\n\n
-                    :satellite: `api-pepy-tech`\n
-                    :bulb: **Latest Version**: {get_data[1]['last_version']}\n
-                    :bar_chart: **Last version downloads**: {get_data[1]["last_version_downloads"]}\n
-                    :chart_with_upwards_trend: **Total downloads**: {get_data[1]['total_downloads']}\n
-                    :calendar_spiral: **Downloads on {get_data[1]["set"]}**: {get_data[1]['downloads_sum']}\n
-                    """,
+                    description=f":satellite: `pypistats`\n:bulb: **Latest Version**: {get_data[0]['last_version']}\n:pencil: **Downloads last day:** {get_data[0]['downloads'][0]}\n:pencil: **Downloads last week:** {get_data[0]['downloads'][1]}\n:pencil: **Downloads last month:** {get_data[0]['downloads'][2]}\n\n:satellite: `api-pepy-tech`\n:bulb: **Latest Version**: {get_data[1]['last_version']}\n:bar_chart: **Last version downloads**: {get_data[1]["last_version_downloads"]}\n:chart_with_upwards_trend: **Total downloads**: {get_data[1]['total_downloads']}\n:calendar_spiral: **Downloads on {get_data[1]["set"]}**: {get_data[1]['downloads_sum']}\n",
                     color=glcolor)
                 embed2.set_author(name=inter.author.name, icon_url=Member.avatar.url)
                 await inter.send(embed=embed2)
