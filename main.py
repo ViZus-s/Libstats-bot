@@ -2,6 +2,9 @@
 import os
 import disnake
 from disnake.ext import commands
+# monkey
+import gevent.monkey
+gevent.monkey.patch_all()
 # -------------------------- global color
 glcolor = 0x2c6bd0
 # -------------------------- cogs list
