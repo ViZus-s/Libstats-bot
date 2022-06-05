@@ -3,8 +3,11 @@
 
 This bot allows you to view disnake statistics directly in discord.
 
-The bot uses the BeautifulSoup library to get data from these sites:
-
+The bot uses:
+1. BeautifulSoup
+2. requests
+3. grequests
+library's to get data from these sites:
 
 Github = [https://git.disnake.dev/disnake]  
 PyPi = [https://pypi.org/project/disnake]
