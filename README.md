@@ -15,3 +15,5 @@ PyPi = [https://pypi.org/project/disnake]
 
 Each time we will experiment to make the bot more convenient, optimized, faster.  
 If you want to support this work, you can leave a star :)
+
+Support server > https://discord.gg/RrpKVNuRCc
