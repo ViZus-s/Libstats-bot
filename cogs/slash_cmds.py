@@ -26,7 +26,7 @@ class Slashs(commands.Cog):
             lastcom = get_data["last commit"]
             
             embed1 = disnake.Embed(title="GitHub Disnake Statistics",
-                            description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:satellite: **pull requests**: `{pull}`\n:hourglass: **last commit**: `{lastcom}`",
+                            description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:satellite: **pull requests**: `{pull}`\n:hourglass: **last commit**: {lastcom}",
                             color=glcolor)
             
             embed1.set_author(name=inter.author.name, icon_url=Member.avatar.url)
