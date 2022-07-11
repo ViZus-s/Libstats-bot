@@ -2,6 +2,7 @@
 import disnake
 from sys import version
 from disnake import ApplicationCommandInteraction
+from disnake.ext import commands
 from main import glcolor
 from parsers.gitthub import parsing_git, parsing_update
 from parsers.pypi import parsing_pypi
