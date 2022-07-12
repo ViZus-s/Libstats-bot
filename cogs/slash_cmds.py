@@ -54,7 +54,7 @@ class Slashs(commands.Cog):
                 embed2.set_author(name=member, icon_url=member.avatar.url)
                 await inter.send(embed=embed2)
             except:
-                await inter.send("The pypi command is not working right now, forgive us for that, the problem was identified in the api.", error)
+                await inter.send("The pypi command is not working right now, forgive us for that, the problem was identified in the api.")
 
     @commands.slash_command(
         name="help",
