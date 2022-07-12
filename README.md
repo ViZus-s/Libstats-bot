@@ -1,21 +1,18 @@
-![изображение](https://user-images.githubusercontent.com/86660567/156034926-d1a35394-7d4f-4a46-a788-ea26a19d95c0.png)
-# Disnake-Statistics-Bot
+# Libstats
 
-This bot allows you to view disnake statistics directly in discord.
+This bot allows you to view library statistics directly in discord.
 
 The bot uses:
-1. BeautifulSoup
+1. beautifulsoup4
 2. requests
 3. grequests
 
 library's to get data from these sites:
-
-Github = [https://git.disnake.dev/disnake]  
-PyPi = [https://pypi.org/project/disnake]
+1. https://pypistats.org
+2. https://api.pepy.tech/api/v2/{projects/name}
+3. https://github.com
 
 Each time we will experiment to make the bot more convenient, optimized, faster.  
 If you want to support this work, you can leave a star :)
 
-Support server > https://discord.gg/RrpKVNuRCc [Russian Support Server]
-
-Otherwise, you can mention me on disnake.
+Support server > In developing
