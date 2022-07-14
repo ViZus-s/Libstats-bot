@@ -29,8 +29,6 @@ def parsing_pypi(library: str):
     items_list = list(downloads_list.values())
 
     if library == "disnake":
-        downloads_list = reqs["downloads"][last_day]
-        items_list = list(downloads_list.values())
         return {
             "last_version": div1[29],
             "downloads": div1[57::4],
