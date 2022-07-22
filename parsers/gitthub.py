@@ -10,11 +10,15 @@ def parsing_git(library: str):
     if library == "disnake":
         response = req.get(
             "https://github.com/DisnakeDev/disnake/commit/master")
-        
+
     elif library == "nextcord":
         response = req.get(
             "https://github.com/nextcord/nextcord/commit/master")
-        
+
+    elif library == "pycord":
+        response = req.get(
+            "https://github.com/Pycord-Development/pycord/commit/master")
+
     soup = BeautifulSoup(response.content, 'html.parser')
 
     stars = soup.find("span", {'class': "Counter js-social-count"}).text
