@@ -10,7 +10,9 @@ import time
 links = {"disnake": ["https://pypistats.org/packages/disnake",
                      "https://api.pepy.tech/api/v2/projects/disnake"],
          "nextcord": ["https://pypistats.org/packages/nextcord",
-                      "https://api.pepy.tech/api/v2/projects/nextcord"]}
+                      "https://api.pepy.tech/api/v2/projects/nextcord"],
+         "pycord": ["https://pypistats.org/packages/py-cord",
+                    "https://api.pepy.tech/api/v2/projects/py-cord"]}
 # parse
 
 
@@ -29,6 +31,7 @@ def parsing_pypi(library: str):
     items_list = list(downloads_list.values())
 
     if library == "disnake":
+
         return {
             "last_version": div1[29],
             "downloads": div1[57::4],
@@ -41,10 +44,12 @@ def parsing_pypi(library: str):
         }
 
     elif library == "nextcord":
+
         last_version2 = ([int(i.replace(".", ""))
                           for i in reqs['versions']
                           if i.replace(".", "").isdigit()])
-        last_version2 = ".".join(str(max(sorted(last_version2))))
+        last_version2 = ".".join(str(sorted(last_version2)[-1]))
+
         return {
             "last_version": div1[33],
             "downloads": div1[37::4],
@@ -56,3 +61,20 @@ def parsing_pypi(library: str):
             "set": last_day
         }
 
+    elif library == "pycord":
+
+        last_version2 = ([int(i.replace(".", ""))
+                          for i in reqs['versions']
+                          if i.replace(".", "").isdigit()])
+        last_version2 = ".".join(str(sorted(last_version2)[-1]))
+
+        return {
+            "last_version": div1[29],
+            "downloads": div1[51::4][1:],
+        }, {
+            "last_version": last_version2,
+            "total_downloads": "{:,}".format(reqs['total_downloads']),
+            "downloads_sum": "{:,}".format(sum(items_list)),
+            "last_version_downloads": "{:,}".format(downloads_list[last_version2]),
+            "set": last_day
+        }
