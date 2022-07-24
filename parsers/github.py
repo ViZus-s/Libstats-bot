@@ -3,22 +3,20 @@ from bs4 import BeautifulSoup
 import requests as req
 import time
 
+# links
+
+library_links = {"disnake": "https://github.com/DisnakeDev/disnake/commit/master",
+                 "nextcord": "https://github.com/nextcord/nextcord/commit/master",
+                 "pycord": "https://github.com/Pycord-Development/pycord/commit/master",
+                 "discord.py": "https://github.com/Rapptz/discord.py/commit/master",
+                }
+
 # parse
 
 
 def parsing_git(library: str):
-    if library == "disnake":
-        response = req.get(
-            "https://github.com/DisnakeDev/disnake/commit/master")
 
-    elif library == "nextcord":
-        response = req.get(
-            "https://github.com/nextcord/nextcord/commit/master")
-
-    elif library == "pycord":
-        response = req.get(
-            "https://github.com/Pycord-Development/pycord/commit/master")
-
+    response = req.get(library_links[library])
     soup = BeautifulSoup(response.content, 'html.parser')
 
     stars = soup.find("span", {'class': "Counter js-social-count"}).text
@@ -39,7 +37,8 @@ def parsing_git(library: str):
 
 
 def parsing_update():
-    response = req.get(
-        "https://github.com/ViZus-s/Libstats-bot/commit/main")
+
+    response = req.get("https://github.com/ViZus-s/Libstats-bot/commit/main")
     soup = BeautifulSoup(response.content, 'html.parser')
+
     return soup.find('div', {"class": "commit-title markdown-title"}).text.strip()
