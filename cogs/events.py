@@ -1,9 +1,8 @@
-# imports
 import disnake
 from disnake.ext import commands
 
 
-class events(commands.Cog):
+class Events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -14,7 +13,7 @@ class events(commands.Cog):
     
     @commands.Cog.listener()
     async def on_message(self, message):
-        return
+        pass
 
 def setup(bot):
-    bot.add_cog(events(bot))
+    bot.add_cog(Events(bot))
