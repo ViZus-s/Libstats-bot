@@ -1,18 +1,14 @@
-# libs
-from bs4 import BeautifulSoup
-import requests as req
 import time
 
-# links
+from bs4 import BeautifulSoup
+import requests as req
 
 library_links = {"disnake": "https://github.com/DisnakeDev/disnake/commit/master",
                  "nextcord": "https://github.com/nextcord/nextcord/commit/master",
                  "pycord": "https://github.com/Pycord-Development/pycord/commit/master",
                  "discord.py": "https://github.com/Rapptz/discord.py/commit/master",
+                 "interactions.py": "https://github.com/interactions-py/library/commit/stable",
                 }
-
-# parse
-
 
 def parsing_git(library: str):
 
