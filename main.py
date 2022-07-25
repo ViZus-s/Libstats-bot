@@ -25,7 +25,7 @@ if __name__ == '__main__':
     for cog in os.listdir("./cogs"):
         if cog.endswith(".py"):
             try:
-                cog = f"cogs.{cog.replace('.py', '')}"
+                cog = f"cogs.{cog[:-3]}"
                 bot.load_extension(cog)
 
             except Exception as e:
