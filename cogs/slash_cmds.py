@@ -23,28 +23,30 @@ class Slashes(commands.Cog):
         description="Wanna check statistic? Use this command!",
     )
     async def stats(self, inter: disnake.CommandInteraction, platform: str = commands.Param(choices=['pypi', 'github']), library: str = commands.Param(choices=LIBRARIES)):
+
         member = inter.author
+        await inter.response.defer()
 
         if platform == 'github':
-            get_data = parsing_git(library)
-
+            get_data = await parsing_git(library)
             stars = get_data["stars"]
             forks = get_data["forks"]
             issues = get_data["issues"]
+            watching = get_data['watching']
             pull = get_data["pull requests"]
             lastcom = get_data["last commit"]
+            
 
             embed1 = disnake.Embed(title=f"GitHub {library.capitalize()} Statistics",
-                                   description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:satellite: **pull requests [OPEN]**: `{pull}`\n:hourglass: **last commit**: {lastcom}",
+                                   description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:eyes: **watching**: `{watching}`\n:satellite: **pull requests [OPEN]**: `{pull}`\n:hourglass: **last commit**: {lastcom}",
                                    color=GLOBAL_COLOR)
 
             embed1.set_author(name=member, icon_url=member.avatar.url)
-            await inter.response.defer()
             await inter.send(embed=embed1)
 
         elif platform == 'pypi':
             try:
-                get_data = parsing_pypi(library)
+                get_data = await parsing_pypi(library)
 
                 last_version1 = get_data[0]['last_version']
                 downloads1 = get_data[0]['downloads']
@@ -60,12 +62,11 @@ class Slashes(commands.Cog):
                     color=GLOBAL_COLOR)
 
                 embed2.set_author(name=member, icon_url=member.avatar.url)
-                await inter.response.defer()
                 await inter.send(embed=embed2)
 
-            except:
+            except Exception as error:
 
-                await inter.send("The pypi command is not working right now, forgive us for that, the problem was identified in the api.")
+                await inter.send("The pypi command is not working right now, sorry about that.")
 
     @commands.slash_command(
         name="help",
@@ -87,7 +88,7 @@ class Slashes(commands.Cog):
 
         embed = disnake.Embed(
             title="Bot information",
-            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n<:icon2:983249100558434355> **Python version**: `{version[:6:]}`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`\n:envelope_with_arrow: **Last update**: `{parsing_update()}`\n:gear: **Lib support**: forks, discord.py, interactions.py\n:open_file_folder: **Bot github**: ||https://github.com/ViZus-s/Libstats-bot||",
+            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n<:icon2:983249100558434355> **Python version**: `{version[:6:]}`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`\n:envelope_with_arrow: **Last update**: `{await parsing_update()}`\n:gear: **Lib support**: forks, discord.py, interactions.py\n:open_file_folder: **Bot github**: ||https://github.com/ViZus-s/Libstats-bot||",
             color=GLOBAL_COLOR)
 
         embed.set_author(name=inter.author, icon_url=inter.author.avatar.url)
