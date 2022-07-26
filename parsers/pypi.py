@@ -1,8 +1,8 @@
-import time
-import json
 from datetime import date, timedelta
+import json
+import time
 
-import grequests as req
+import aiohttp
 from bs4 import BeautifulSoup
 
 LINKS = {
@@ -22,14 +22,17 @@ LINKS = {
                         "https://api.pepy.tech/api/v2/projects/discord-py-interactions"),
 }
 
-def parsing_pypi(library: str):
 
-    link_get = [req.get(link) for link in LINKS[library]]
-    responses = req.map(link_get)
+async def parsing_pypi(library: str) -> dict:
 
-    soup1 = BeautifulSoup(responses[0].content, 'html.parser')
-    reqs = responses[1].text
-    reqs = json.loads(reqs)
+    async with aiohttp.ClientSession() as session:
+
+        async with session.get(url=LINKS[library][0]) as request:
+            soup1 = BeautifulSoup(await request.text(), 'html.parser')
+
+        async with session.get(url=LINKS[library][1]) as request:
+            reqs = await request.text()
+            reqs = json.loads(reqs)
 
     div1 = soup1.find("div", {"class": "wrapper"}).text.split()
     last_day = str(date.today() - timedelta(days=1))
