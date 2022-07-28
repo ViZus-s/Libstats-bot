@@ -11,7 +11,7 @@ The bot uses:
 library's to get data from these sites:
 1. https://pypistats.org
 2. https://api.pepy.tech/api/v2/{projects/name}
-3. https://github.com
+3. https://api.github.com
 
 Each time we will experiment to make the bot more convenient, optimized, faster.  
 
@@ -28,7 +28,7 @@ If you want to support this work, you can leave a star :)
 Библиотеки, чтобы получать данные с этих сайтов:
 1. https://pypistats.org
 2. https://api.pepy.tech/api/v2/{projects/название}
-3. https://github.com
+3. https://api.github.com
 
 Обновления делаются 1 раз или по-нескольку в неделю, за эти разы бот будет стараться быть более удобным, оптимизированным и быстрым.
 
