@@ -35,6 +35,12 @@ LINKS: Dict[str, Tuple[str, ...]] = {
         "https://api.github.com/search/issues?q=repo:interactions-py/library+type:issue+state:open",
         "https://api.github.com/repos/interactions-py/library/pulls",
     ),
+    "hikari": (
+        "https://api.github.com/repos/hikari-py/hikari",
+        "https://api.github.com/repos/hikari-py/hikari/commits",
+        "https://api.github.com/search/issues?q=repo:hikari-py/hikari+type:issue+state:open",
+        "https://api.github.com/repos/hikari-py/hikari/pulls",
+    ),
 }
 
 
