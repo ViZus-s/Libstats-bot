@@ -11,7 +11,7 @@ https://disnake.dev
 
 `Disnake Documentation & Guide:`
 **Docs:**
-https://disnake.readthedocs.io/en/stable
+https://docs.disnake.dev/en/stable/
 **Guide:**
 https://guide.disnake.dev
 
@@ -32,7 +32,7 @@ https://pypi.org/project/nextcord
 **Website:**
 https://nextcord.dev
 
-`Nextcord Documentation & Guide:`
+`Nextcord Documentation:`
 **Documentation:**
 https://docs.nextcord.dev/en/stable
 
@@ -53,10 +53,10 @@ https://pypi.org/project/py-cord
 https://pycord.dev
 
 `Pycord Documentation & Guide:`
-**Guide:**
-https://guide.pycord.dev
 **Documentation:**
 https://docs.pycord.dev/en/master
+**Guide:**
+https://guide.pycord.dev
 
 `Pycord Discord:`
 **Support server:**
@@ -82,6 +82,7 @@ https://pypi.org/project/discord.py
 `Discord.py Documentation:`
 **Documentation:**
 https://discordpy.readthedocs.io/en/stable
+
 `Discord.py Discord:`
 **Support server:**
 https://discord.gg/dpy
@@ -91,7 +92,7 @@ https://discord.gg/dpy
 """
 `Interactions.py GitHub & PyPi & Website:`
 **GitHub:**
-https://github.com/interactions-py
+https://github.com/interactions-py/library
 **PyPi:**
 https://pypi.org/project/discord-py-interactions
 **Website:**
@@ -110,6 +111,25 @@ https://discord.gg/interactions
 https://twitter.com/interactionspy
 **Official How-To/Tutorial Playlist:**
 https://www.youtube.com/watch?v=QNCXHq8b1EI&list=PLnI02ssmcTo3qChwe5_tRyILLqrAExZlo
+""",
+
+    "hikari":
+"""
+`Hikari GitHub & PyPi & Website:`
+**GitHub:**
+https://github.com/hikari-py/hikari
+**Pypi:**
+https://pypi.org/project/hikari
+**Website:**
+https://www.hikari-py.dev
+
+`Hikari Documentation:`
+**Documentation:**
+https://www.hikari-py.dev/hikari/index.html
+
+`Hikari Discord:`
+**Support server:**
+https://discord.gg/hikari
 """,
 }
 
