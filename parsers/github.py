@@ -1,7 +1,8 @@
-import os
-from dateutil import parser
-from typing import Dict, Tuple, Union
 import aiohttp
+import os
+from typing import Dict, Tuple, Union
+
+from dateutil import parser
 from disnake.utils import format_dt
 
 LINKS: Dict[str, Tuple[str, ...]] = {
@@ -42,7 +43,6 @@ LINKS: Dict[str, Tuple[str, ...]] = {
         "https://api.github.com/repos/hikari-py/hikari/pulls",
     ),
 }
-
 
 async def parsing_git(library: str) -> Dict[str, Union[str, int]]:
     async with aiohttp.ClientSession(
