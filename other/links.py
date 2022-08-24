@@ -14,6 +14,8 @@ https://disnake.dev
 https://docs.disnake.dev/en/stable/
 **Guide:**
 https://guide.disnake.dev
+**Russian Guide:**
+https://ru.guide.disnake.dev
 
 `Disnake Discord:`
 **Support server:**
