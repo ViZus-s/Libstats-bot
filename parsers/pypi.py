@@ -1,11 +1,14 @@
-from datetime import date, timedelta
+import asyncio
 import json
 import time
+from datetime import date, timedelta
+from typing import Dict, Tuple, Union
 
 import aiohttp
 from bs4 import BeautifulSoup
 
-LINKS = {
+
+LINKS: Dict[str, Tuple[str, str]] = {
     "disnake": (
         "https://pypistats.org/packages/disnake",
         "https://api.pepy.tech/api/v2/projects/disnake",
@@ -58,9 +61,9 @@ async def parsing_pypi(library: str) -> dict:
 
         return {"last_version": div1[29], "downloads": div1[57::4],}, {
             "last_version": last_version2,
-            "total_downloads": "{:,}".format(reqs["total_downloads"]),
-            "downloads_sum": "{:,}".format(sum(items_list)),
-            "last_version_downloads": "{:,}".format(downloads_list[last_version2]),
+            "total_downloads": f"{reqs['total_downloads']:,d}",
+            "downloads_sum": f"{sum(items_list):,d}",
+            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
             "set": last_day,
         }
 
@@ -68,9 +71,9 @@ async def parsing_pypi(library: str) -> dict:
 
         return {"last_version": div1[33], "downloads": div1[37::4],}, {
             "last_version": last_version2,
-            "total_downloads": "{:,}".format(reqs["total_downloads"]),
-            "downloads_sum": "{:,}".format(sum(items_list)),
-            "last_version_downloads": "{:,}".format(downloads_list[last_version2]),
+            "total_downloads": f"{reqs['total_downloads']:,d}",
+            "downloads_sum": f"{sum(items_list):,d}",
+            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
             "set": last_day,
         }
 
@@ -78,29 +81,28 @@ async def parsing_pypi(library: str) -> dict:
 
         return {"last_version": div1[29], "downloads": div1[51::4][1:],}, {
             "last_version": last_version2,
-            "total_downloads": "{:,}".format(reqs["total_downloads"]),
-            "downloads_sum": "{:,}".format(sum(items_list)),
-            "last_version_downloads": "{:,}".format(downloads_list[last_version2]),
+            "total_downloads": f"{reqs['total_downloads']:,d}",
+            "downloads_sum": f"{sum(items_list):,d}",
+            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
             "set": last_day,
         }
-
     elif library == "discord.py":
 
-        return {"last_version": div1[28], "downloads": div1[40::4][1:]}, {
+        return {"last_version": div1[28], "downloads": div1[60::4][1:]}, {
             "last_version": last_version2,
-            "total_downloads": "{:,}".format(reqs["total_downloads"]),
-            "downloads_sum": "{:,}".format(sum(items_list)),
-            "last_version_downloads": "{:,}".format(downloads_list[last_version2]),
+            "total_downloads": f"{reqs['total_downloads']:,d}",
+            "downloads_sum": f"{sum(items_list):,d}",
+            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
             "set": last_day,
         }
 
     elif library == "interactions.py":
 
-        return {"last_version": div1[33], "downloads": div1[51::4][1:]}, {
+        return {"last_version": div1[33], "downloads": div1[53::4][2:]}, {
             "last_version": last_version2,
-            "total_downloads": "{:,}".format(reqs["total_downloads"]),
-            "downloads_sum": "{:,}".format(sum(items_list)),
-            "last_version_downloads": "{:,}".format(downloads_list[last_version2]),
+            "total_downloads": f"{reqs['total_downloads']:,d}",
+            "downloads_sum": f"{sum(items_list):,d}",
+            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
             "set": last_day,
         }
 
@@ -112,8 +114,19 @@ async def parsing_pypi(library: str) -> dict:
 
         return {"last_version": div1[34], "downloads": div1[54::4][1:]}, {
             "last_version": last_version2,
-            "total_downloads": "{:,}".format(reqs["total_downloads"]),
-            "downloads_sum": "{:,}".format(sum(items_list)),
-            "last_version_downloads": "{:,}".format(downloads_list[last_version2]),
+            "total_downloads": f"{reqs['total_downloads']:,d}",
+            "downloads_sum": f"{sum(items_list):,d}",
+            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
             "set": last_day,
         }
+
+async def parsing_downloads(library: str) -> Dict[str, int]:
+    async with aiohttp.request("GET", LINKS[library][1]) as response:
+        response = await response.text()
+    response = json.loads(response)
+
+    downloads_list = response['downloads']
+
+    dates = [str(date.today() - timedelta(days=i)) for i in range(1, 31)]
+
+    return {date: sum(downloads_list[date].values()) for date in dates}
