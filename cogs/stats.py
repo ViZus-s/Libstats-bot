@@ -58,7 +58,7 @@ class Stats(commands.Cog):
 
                 embed2.set_author(name=member,
                                  icon_url=member.display_avatar.url)
-                embed.set_footer(text="Statistics are updated every day.")
+                embed2.set_footer(text="Statistics are updated every day.")
 
                 await inter.send(embed=embed2)
 
