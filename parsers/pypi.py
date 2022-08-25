@@ -48,10 +48,10 @@ async def parsing_pypi(library: str) -> dict:
             reqs = json.loads(reqs)
 
     div1 = soup1.find("div", {"class": "wrapper"}).text.split()
-    last_day = str(date.today() - timedelta(days=1))
+    last_day = f"{date.today() - timedelta(days=1)}"
 
     downloads_list = reqs["downloads"][last_day]
-    items_list = list(downloads_list.values())
+    items_list = downloads_list.values()
 
     last_version2 = reqs["versions"]
     last_version2.sort(key=lambda x: tuple((x.lstrip("v") + "z").split(".")))
@@ -59,7 +59,7 @@ async def parsing_pypi(library: str) -> dict:
 
     if library == "disnake":
 
-        return {"last_version": div1[29], "downloads": div1[57::4],}, {
+        return {"last_version": div1[29], "downloads": div1[57::4], }, {
             "last_version": last_version2,
             "total_downloads": f"{reqs['total_downloads']:,d}",
             "downloads_sum": f"{sum(items_list):,d}",
@@ -69,7 +69,7 @@ async def parsing_pypi(library: str) -> dict:
 
     elif library == "nextcord":
 
-        return {"last_version": div1[33], "downloads": div1[37::4],}, {
+        return {"last_version": div1[33], "downloads": div1[37::4], }, {
             "last_version": last_version2,
             "total_downloads": f"{reqs['total_downloads']:,d}",
             "downloads_sum": f"{sum(items_list):,d}",
@@ -79,7 +79,7 @@ async def parsing_pypi(library: str) -> dict:
 
     elif library == "pycord":
 
-        return {"last_version": div1[29], "downloads": div1[51::4][1:],}, {
+        return {"last_version": div1[29], "downloads": div1[51::4][1:], }, {
             "last_version": last_version2,
             "total_downloads": f"{reqs['total_downloads']:,d}",
             "downloads_sum": f"{sum(items_list):,d}",
@@ -108,7 +108,8 @@ async def parsing_pypi(library: str) -> dict:
 
     elif library == "hikari":
 
-        last_version2 = [i for i in reqs['versions'] if len(i) == 12 and 'dev' in i]
+        last_version2 = [i for i in reqs['versions']
+                         if len(i) == 12 and 'dev' in i]
         last_version2.sort(key=lambda x: tuple((x + "z").split(".")))
         last_version2 = last_version2[-1]
 
@@ -120,6 +121,7 @@ async def parsing_pypi(library: str) -> dict:
             "set": last_day,
         }
 
+
 async def parsing_downloads(library: str) -> Dict[str, int]:
     async with aiohttp.request("GET", LINKS[library][1]) as response:
         response = await response.text()
@@ -127,6 +129,6 @@ async def parsing_downloads(library: str) -> Dict[str, int]:
 
     downloads_list = response['downloads']
 
-    dates = [str(date.today() - timedelta(days=i)) for i in range(1, 31)]
+    dates = [f"{date.today() - timedelta(days=i)}" for i in range(1, 31)]
 
     return {date: sum(downloads_list[date].values()) for date in dates}
