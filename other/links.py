@@ -1,7 +1,8 @@
 all_links = {
-    "disnake": 
+    # python libs
+    "disnake":
 """
-`Disnake GitHub & PyPi & Website:`
+`GitHub & PyPi & Website:`
 **GitHub:**
 https://github.com/DisnakeDev/disnake
 **PyPi:**
@@ -9,15 +10,13 @@ https://pypi.org/project/disnake
 **Website:**
 https://disnake.dev
 
-`Disnake Documentation & Guide:`
+`Documentation & Guide:`
 **Docs:**
 https://docs.disnake.dev/en/stable/
 **Guide:**
 https://guide.disnake.dev
-**Russian Guide:**
-https://ru.guide.disnake.dev
 
-`Disnake Discord:`
+`Discord:`
 **Support server:**
 https://discord.gg/disnake
 **Russian support server:**
@@ -26,7 +25,7 @@ https://discord.gg/RrpKVNuRCc
 
     "nextcord": 
 """
-`Nextcord GitHub & PyPi & Website:`
+`GitHub & PyPi & Website:`
 **GitHub:**
 https://github.com/nextcord/nextcord
 **PyPi:**
@@ -34,11 +33,11 @@ https://pypi.org/project/nextcord
 **Website:**
 https://nextcord.dev
 
-`Nextcord Documentation:`
+`Documentation:`
 **Documentation:**
 https://docs.nextcord.dev/en/stable
 
-`Nextcord Discord:`
+`Discord:`
 **Support server:**
 https://discord.gg/nextcord
 
@@ -46,7 +45,7 @@ https://discord.gg/nextcord
 
     "pycord":
 """
-`Pycord GitHub & PyPi & Website:`
+`GitHub & PyPi & Website:`
 **GitHub:**
 https://pycord.dev/github
 **PyPi:**
@@ -54,13 +53,13 @@ https://pypi.org/project/py-cord
 **Website:**
 https://pycord.dev
 
-`Pycord Documentation & Guide:`
+`Documentation & Guide:`
 **Documentation:**
 https://docs.pycord.dev/en/master
 **Guide:**
 https://guide.pycord.dev
 
-`Pycord Discord:`
+`Discord:`
 **Support server:**
 https://discord.gg/pycord
 
@@ -75,24 +74,24 @@ https://pycord.dev/appeal
 
     "discord.py": 
 """
-`Discord.py GitHub & PyPi:`
+`GitHub & PyPi:`
 **GitHub:**
 https://github.com/Rapptz/discord.py
 **Pypi:**
 https://pypi.org/project/discord.py
 
-`Discord.py Documentation:`
+`Documentation:`
 **Documentation:**
 https://discordpy.readthedocs.io/en/stable
 
-`Discord.py Discord:`
+`Discord:`
 **Support server:**
 https://discord.gg/dpy
 """,
 
     "interactions.py":
 """
-`Interactions.py GitHub & PyPi & Website:`
+`GitHub & PyPi & Website:`
 **GitHub:**
 https://github.com/interactions-py/library
 **PyPi:**
@@ -100,11 +99,11 @@ https://pypi.org/project/discord-py-interactions
 **Website:**
 https://interactions.i0.gg or https://interactions-py.carrd.co
 
-`Interactions.py Documentation:`
+`Documentation:`
 **Documentation:**
 https://interactionspy.readthedocs.io
 
-`Interactions.py Discord:`
+`Discord:`
 **Support server:**
 https://discord.gg/interactions
 
@@ -117,7 +116,7 @@ https://www.youtube.com/watch?v=QNCXHq8b1EI&list=PLnI02ssmcTo3qChwe5_tRyILLqrAEx
 
     "hikari":
 """
-`Hikari GitHub & PyPi & Website:`
+`GitHub & PyPi & Website:`
 **GitHub:**
 https://github.com/hikari-py/hikari
 **Pypi:**
@@ -125,13 +124,58 @@ https://pypi.org/project/hikari
 **Website:**
 https://www.hikari-py.dev
 
-`Hikari Documentation:`
+`Documentation:`
 **Documentation:**
 https://www.hikari-py.dev/hikari/index.html
 
-`Hikari Discord:`
+`Discord:`
 **Support server:**
 https://discord.gg/hikari
+""",
+    # C# libs
+    "Discord.Net":
+"""
+`GitHub & Website & NuGet:`
+**GitHub:**
+https://github.com/discord-net/Discord.Net
+**Website:**
+https://discordnet.dev
+**NuGet:**
+https://www.nuget.org/packages/Discord.Net
+
+`Guides & FAQ & API Documentation:`
+**Guides:**
+https://discordnet.dev/guides/introduction/intro.html
+**FAQ:**
+https://discordnet.dev/faq/basics/getting-started.html
+**API Documentation:**
+https://discordnet.dev/api/index.html
+
+`Discord:`
+**Support server:**
+https://discord.gg/dnet
+
+""",
+
+    "DSharpPlus":
+"""
+`GitHub & Documentation & NuGet:`
+**GitHub:**
+https://github.com/DSharpPlus/DSharpPlus
+**Documentation:**
+https://dsharpplus.github.io
+**NuGet:**
+https://nuget.org/packages/DSharpPlus
+
+`Getting started:`
+**Quick start guide:**
+https://dsharpplus.github.io/articles/preamble.html
+**Example bots:**
+https://github.com/DSharpPlus/Example-Bots
+
+`Discord:`
+**Support server:**
+https://discord.gg/dsharpplus
 """,
 }
 
