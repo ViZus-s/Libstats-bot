@@ -6,6 +6,7 @@ from dateutil import parser
 from disnake.utils import format_dt
 
 LINKS: Dict[str, Tuple[str, ...]] = {
+    # python
     "disnake": (
         "https://api.github.com/repos/DisnakeDev/disnake",
         "https://api.github.com/repos/DisnakeDev/disnake/commits",
@@ -42,6 +43,19 @@ LINKS: Dict[str, Tuple[str, ...]] = {
         "https://api.github.com/search/issues?q=repo:hikari-py/hikari+type:issue+state:open",
         "https://api.github.com/repos/hikari-py/hikari/pulls",
     ),
+    # C#
+    "Discord.Net": (
+        "https://api.github.com/repos/discord-net/Discord.Net",
+        "https://api.github.com/repos/discord-net/Discord.Net/commits",
+        "https://api.github.com/search/issues?q=repo:discord-net/discord.net+type:issue+state:open",
+        "https://api.github.com/repos/discord-net/Discord.Net/pulls", 
+    ),
+    "DSharpPlus": (
+        "https://api.github.com/repos/DSharpPlus/DSharpPlus",
+        "https://api.github.com/repos/DSharpPlus/DSharpPlus/commits",
+        "https://api.github.com/search/issues?q=repo:dsharpplus/dsharpplus+type:issue+state:open",
+        "https://api.github.com/repos/DSharpPlus/DSharpPlus/pulls",
+    )
 }
 
 async def parsing_git(library: str) -> Dict[str, Union[str, int]]:
