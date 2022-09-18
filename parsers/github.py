@@ -99,5 +99,5 @@ async def parsing_update() -> str:
         "GET", "https://api.github.com/repos/ViZus-s/Libstats-bot/commits"
     ) as response:
         data = await response.json()
-    update = data[1]["commit"]["message"]
+    update = data[0]["commit"]["message"]
     return update
