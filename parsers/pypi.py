@@ -113,7 +113,7 @@ async def parsing_pypi(library: str) -> dict:
         last_version2.sort(key=lambda x: tuple((x + "z").split(".")))
         last_version2 = last_version2[-1]
 
-        return {"last_version": div1[34], "downloads": div1[54::4][1:]}, {
+        return {"last_version": div1[34], "downloads": div1[54::4]}, {
             "last_version": last_version2,
             "total_downloads": f"{reqs['total_downloads']:,d}",
             "downloads_sum": f"{sum(items_list):,d}",
