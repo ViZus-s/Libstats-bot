@@ -56,70 +56,72 @@ async def parsing_pypi(library: str) -> dict:
     last_version2 = reqs["versions"]
     last_version2.sort(key=lambda x: tuple((x.lstrip("v") + "z").split(".")))
     last_version2 = last_version2[-1]
+    try:
+        if library == "disnake":
 
-    if library == "disnake":
+            return {"last_version": div1[29], "downloads": div1[59::4][1:], }, {
+                "last_version": last_version2,
+                "total_downloads": f"{reqs['total_downloads']:,d}",
+                "downloads_sum": f"{sum(items_list):,d}",
+                "last_version_downloads": f"{downloads_list[last_version2]:,d}",
+                "set": last_day,
+            }
 
-        return {"last_version": div1[29], "downloads": div1[59::4][1:], }, {
-            "last_version": last_version2,
-            "total_downloads": f"{reqs['total_downloads']:,d}",
-            "downloads_sum": f"{sum(items_list):,d}",
-            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
-            "set": last_day,
-        }
+        elif library == "nextcord":
 
-    elif library == "nextcord":
+            return {"last_version": div1[33], "downloads": div1[37::4], }, {
+                "last_version": last_version2,
+                "total_downloads": f"{reqs['total_downloads']:,d}",
+                "downloads_sum": f"{sum(items_list):,d}",
+                "last_version_downloads": f"{downloads_list[last_version2]:,d}",
+                "set": last_day,
+            }
 
-        return {"last_version": div1[33], "downloads": div1[37::4], }, {
-            "last_version": last_version2,
-            "total_downloads": f"{reqs['total_downloads']:,d}",
-            "downloads_sum": f"{sum(items_list):,d}",
-            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
-            "set": last_day,
-        }
+        elif library == "pycord":
 
-    elif library == "pycord":
+            return {"last_version": div1[29], "downloads": div1[51::4][1:], }, {
+                "last_version": last_version2,
+                "total_downloads": f"{reqs['total_downloads']:,d}",
+                "downloads_sum": f"{sum(items_list):,d}",
+                "last_version_downloads": f"{downloads_list[last_version2]:,d}",
+                "set": last_day,
+            }
+        elif library == "discord.py":
 
-        return {"last_version": div1[29], "downloads": div1[51::4][1:], }, {
-            "last_version": last_version2,
-            "total_downloads": f"{reqs['total_downloads']:,d}",
-            "downloads_sum": f"{sum(items_list):,d}",
-            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
-            "set": last_day,
-        }
-    elif library == "discord.py":
+            return {"last_version": div1[28], "downloads": div1[60::4][1:]}, {
+                "last_version": last_version2,
+                "total_downloads": f"{reqs['total_downloads']:,d}",
+                "downloads_sum": f"{sum(items_list):,d}",
+                "last_version_downloads": f"{downloads_list[last_version2]:,d}",
+                "set": last_day,
+            }
 
-        return {"last_version": div1[28], "downloads": div1[60::4][1:]}, {
-            "last_version": last_version2,
-            "total_downloads": f"{reqs['total_downloads']:,d}",
-            "downloads_sum": f"{sum(items_list):,d}",
-            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
-            "set": last_day,
-        }
+        elif library == "interactions.py":
 
-    elif library == "interactions.py":
+            return {"last_version": div1[33], "downloads": div1[53::4][2:]}, {
+                "last_version": last_version2,
+                "total_downloads": f"{reqs['total_downloads']:,d}",
+                "downloads_sum": f"{sum(items_list):,d}",
+                "last_version_downloads": f"{downloads_list[last_version2]:,d}",
+                "set": last_day,
+            }
 
-        return {"last_version": div1[33], "downloads": div1[53::4][2:]}, {
-            "last_version": last_version2,
-            "total_downloads": f"{reqs['total_downloads']:,d}",
-            "downloads_sum": f"{sum(items_list):,d}",
-            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
-            "set": last_day,
-        }
+        elif library == "hikari":
 
-    elif library == "hikari":
+            last_version2 = [i for i in reqs['versions']
+                            if len(i) == 12 and 'dev' in i]
+            last_version2.sort(key=lambda x: tuple((x + "z").split(".")))
+            last_version2 = last_version2[-1]
 
-        last_version2 = [i for i in reqs['versions']
-                         if len(i) == 12 and 'dev' in i]
-        last_version2.sort(key=lambda x: tuple((x + "z").split(".")))
-        last_version2 = last_version2[-1]
-
-        return {"last_version": div1[34], "downloads": div1[54::4]}, {
-            "last_version": last_version2,
-            "total_downloads": f"{reqs['total_downloads']:,d}",
-            "downloads_sum": f"{sum(items_list):,d}",
-            "last_version_downloads": f"{downloads_list[last_version2]:,d}",
-            "set": last_day,
-        }
+            return {"last_version": div1[34], "downloads": div1[54::4]}, {
+                "last_version": last_version2,
+                "total_downloads": f"{reqs['total_downloads']:,d}",
+                "downloads_sum": f"{sum(items_list):,d}",
+                "last_version_downloads": f"{downloads_list[last_version2]:,d}",
+                "set": last_day,
+            }
+    except Exception:
+        return "not working"
 
 
 async def parsing_downloads(library: str) -> Dict[str, int]:
