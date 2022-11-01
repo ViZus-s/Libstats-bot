@@ -59,7 +59,7 @@ async def parsing_pypi(library: str) -> dict:
     try:
         if library == "disnake":
 
-            return {"last_version": div1[29], "downloads": div1[59::4][1:], }, {
+            return {"last_version": div1[29], "downloads": div1[61::4][1:], }, {
                 "last_version": last_version2,
                 "total_downloads": f"{reqs['total_downloads']:,d}",
                 "downloads_sum": f"{sum(items_list):,d}",
