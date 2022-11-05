@@ -177,6 +177,16 @@ https://github.com/DSharpPlus/Example-Bots
 **Support server:**
 https://discord.gg/dsharpplus
 """,
+    # JS libs
+    "discord.js":
+"""
+in the process
+""",
+
+    "eris":
+"""
+in the process
+"""
 }
 
 def get_links(library: str) -> str:
