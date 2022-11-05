@@ -66,7 +66,7 @@ class Stats(commands.Cog):
             embed1.set_author(name=member, icon_url=member.display_avatar.url)
             await inter.send(embed=embed1)
 
-        elif language == "Python":
+        elif language == "Python" and platform == "pypi":
 
             try:
                 get_data = await parsing_pypi(library)
@@ -90,7 +90,7 @@ class Stats(commands.Cog):
             except Exception as error:
                 await inter.send("The pypi command is not working.")
 
-        elif language == "C#":
+        elif language == "C#" and platform == "nuget":
             get_data = await parsing_nuget(library)
 
             last_version = get_data['last_version']
@@ -103,7 +103,7 @@ class Stats(commands.Cog):
             embed1.set_author(name=member, icon_url=member.display_avatar.url)
             await inter.send(embed=embed1)
 
-        elif language == "JS":
+        elif language == "JS" and platform == "npm":
             get_data = await parsing_npm(library)
 
             last_version = get_data['last_version']
@@ -116,7 +116,10 @@ class Stats(commands.Cog):
             )
             embed1.set_author(name=member, icon_url=member.display_avatar.url)
             await inter.send(embed=embed1)
-
+            
+        else:
+            await inter.send("you used the wrong argument.")
+                             
     @commands.slash_command(
         name="stats_2",
         description="Shows monthly library downloads. (only for python libraries)",)
