@@ -5,8 +5,8 @@ from main import GLOBAL_COLOR
 from other.links import get_links
 
 from parsers.github import parsing_git, parsing_update
-from parsers.pypi import parsing_pypi, parsing_downloads
-from parsers.nuget import parsing_nuget
+from parsers.python import parsing_pypi, parsing_downloads
+from parsers.c_sharp import parsing_nuget
 
 LANGUAGES = ("Python", "C#")
 LIBRARIES = {
