@@ -55,7 +55,20 @@ LINKS: Dict[str, Tuple[str, ...]] = {
         "https://api.github.com/repos/DSharpPlus/DSharpPlus/commits",
         "https://api.github.com/search/issues?q=repo:dsharpplus/dsharpplus+type:issue+state:open",
         "https://api.github.com/repos/DSharpPlus/DSharpPlus/pulls",
-    )
+    ),
+    # JS
+    "discord.js": (
+        "https://api.github.com/repos/discordjs/discord.js",
+        "https://api.github.com/repos/discordjs/discord.js/commits",
+        "https://api.github.com/search/issues?q=repo:discordjs/discord.js+type:issue+state:open",
+        "https://api.github.com/repos/discordjs/discord.js/pulls",
+    ),
+    "eris": (
+        "https://api.github.com/repos/abalabahaha/eris",
+        "https://api.github.com/repos/abalabahaha/eris/commits",
+        "https://api.github.com/search/issues?q=repo:abalabahaha/eris+type:issue+state:open",
+        "https://api.github.com/repos/abalabahaha/eris/pulls",
+    ),
 }
 
 async def parsing_git(library: str) -> Dict[str, Union[str, int]]:
