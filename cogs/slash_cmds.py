@@ -30,7 +30,7 @@ class Slashes(commands.Cog):
 
         embed = disnake.Embed(
             title="Bot information",
-            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n<:icon2:983249100558434355> **Python version**: `{version[:6:]}`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`\n:envelope_with_arrow: **Last update**: `{await parsing_update()}`\n:gear: **Lib support**: Python, C# libs\n:open_file_folder: **Bot github**: ||https://github.com/ViZus-s/Libstats-bot||",
+            description=f"<:disnake:922937443039186975> **Disnake version**: `{disnake.__version__}`\n<:icon2:983249100558434355> **Python version**: `{version[:6:]}`\n:timer: **Ping**: `{round(self.bot.latency * 1000)} ms`\n:envelope_with_arrow: **Last update**: `{await parsing_update()}`\n:gear: **Lib support**: Python, C#, JS\n:open_file_folder: **Bot github**: ||https://github.com/ViZus-s/Libstats-bot||",
             color=GLOBAL_COLOR)
 
         embed.set_author(name=inter.author, icon_url=inter.author.display_avatar.url)
