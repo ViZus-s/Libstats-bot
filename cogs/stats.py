@@ -7,16 +7,19 @@ from other.links import get_links
 from parsers.github import parsing_git, parsing_update
 from parsers.python import parsing_pypi, parsing_downloads
 from parsers.c_sharp import parsing_nuget
+from parsers.javascript import parsing_npm
 
-LANGUAGES = ("Python", "C#")
+LANGUAGES = ("Python", "C#", "JS")
 LIBRARIES = {
     "Python": ("disnake", "nextcord", "pycord",
                "discord.py", "interactions.py", "hikari"),
     "C#": ("Discord.Net", "DSharpPlus"),
+    "JS": ("discord.js", "eris"),
 }
 PLATFORMS = {
     "Python": ("github", "pypi"),
-    "C#": ("github", "nuget")
+    "C#": ("github", "nuget"),
+    "JS": ("github", "npm"),
 }
 
 async def autocomplete_platform(inter: disnake.CommandInter, user_input: str):
@@ -46,79 +49,74 @@ class Stats(commands.Cog):
         member = inter.author
         await inter.response.defer()
 
-        if language == "Python":
+        if platform == 'github':
+            get_data = await parsing_git(library)
 
-            if platform == 'github':
-                get_data = await parsing_git(library)
+            stars = get_data["stars"]
+            forks = get_data["forks"]
+            issues = get_data["issues"]
+            watching = get_data['watching']
+            pull = get_data["pull requests"]
+            lastcom = get_data["last commit"]
 
-                stars = get_data["stars"]
-                forks = get_data["forks"]
-                issues = get_data["issues"]
-                watching = get_data['watching']
-                pull = get_data["pull requests"]
-                lastcom = get_data["last commit"]
-
-                embed1 = disnake.Embed(title=f"GitHub {library} Statistics",
-                                    description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:eyes: **watching**: `{watching}`\n:satellite: **pull requests [OPEN]**: `{pull}`\n:hourglass: **last commit**: {lastcom}",
-                                    color=GLOBAL_COLOR)
-
-                embed1.set_author(name=member, icon_url=member.display_avatar.url)
-                await inter.send(embed=embed1)
-
-            elif platform == 'pypi':
-                try:
-                    get_data = await parsing_pypi(library)
-
-                    last_version1 = get_data[0]['last_version']
-                    downloads1 = get_data[0]['downloads']
-                    last_version2 = get_data[1]['last_version']
-                    last_version_downloads2 = get_data[1]['last_version_downloads']
-                    total_downloads2 = get_data[1]['total_downloads']
-                    set2 = get_data[1]['set']
-                    downloads_sum2 = get_data[1]['downloads_sum']
-
-                    embed2 = disnake.Embed(
-                        title=f"PyPi {library} Statistics",
-                        description=f":satellite: `pypistats`\n:bulb: **Latest Version**: {last_version1}\n:pencil: **Downloads last day:** {downloads1[0]}\n:pencil: **Downloads last week:** {downloads1[1]}\n:pencil: **Downloads last month:** {downloads1[2]}\n\n:satellite: `api-pepy-tech`\n:bulb: **Latest Version**: {last_version2}\n:bar_chart: **Last version downloads**: {last_version_downloads2}\n:chart_with_upwards_trend: **Total downloads**: {total_downloads2}\n:calendar_spiral: **Downloads on {set2}**: {downloads_sum2}\n",
+            embed1 = disnake.Embed(title=f"GitHub {library} Statistics",
+                        description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:eyes: **watching**: `{watching}`\n:satellite: **pull requests [OPEN]**: `{pull}`\n:hourglass: **last commit**: {lastcom}",
                         color=GLOBAL_COLOR)
 
-                    embed2.set_author(name=member, icon_url=member.display_avatar.url)
-                    await inter.send(embed=embed2)
+            embed1.set_author(name=member, icon_url=member.display_avatar.url)
+            await inter.send(embed=embed1)
 
-                except Exception as error:
+        elif language == "Python":
 
-                    await inter.send("The pypi command is not working.")
+            try:
+                get_data = await parsing_pypi(library)
 
-        elif language == "C#":
-            if platform == "nuget":
-                get_data = await parsing_nuget(library)
+                last_version1 = get_data[0]['last_version']
+                downloads1 = get_data[0]['downloads']
+                last_version2 = get_data[1]['last_version']
+                last_version_downloads2 = get_data[1]['last_version_downloads']
+                total_downloads2 = get_data[1]['total_downloads']
+                set2 = get_data[1]['set']
+                downloads_sum2 = get_data[1]['downloads_sum']
 
-                last_version = get_data['last_version']
-                total_downloads = get_data['total_downloads']
-
-                embed1 = disnake.Embed(
-                    title=f"NuGet {library} Information",
-                    description=f":floppy_disk: **Latest Version**: `{last_version}`\n:champagne_glass: **Total downloads**: `{total_downloads}`",
+                embed2 = disnake.Embed(
+                    title=f"PyPi {library} Statistics",
+                    description=f":satellite: `pypistats`\n:bulb: **Latest Version**: {last_version1}\n:pencil: **Downloads last day:** {downloads1[0]}\n:pencil: **Downloads last week:** {downloads1[1]}\n:pencil: **Downloads last month:** {downloads1[2]}\n\n:satellite: `api-pepy-tech`\n:bulb: **Latest Version**: {last_version2}\n:bar_chart: **Last version downloads**: {last_version_downloads2}\n:chart_with_upwards_trend: **Total downloads**: {total_downloads2}\n:calendar_spiral: **Downloads on {set2}**: {downloads_sum2}\n",
                     color=GLOBAL_COLOR)
-                embed1.set_author(name=member, icon_url=member.display_avatar.url)
-                await inter.send(embed=embed1)
-
-            elif platform == "github":
-                get_data = await parsing_git(library)
-
-                stars = get_data["stars"]
-                forks = get_data["forks"]
-                issues = get_data["issues"]
-                watching = get_data['watching']
-                pull = get_data["pull requests"]
-                lastcom = get_data["last commit"]
-
-                embed2 = disnake.Embed(title=f"GitHub {library} Statistics",
-                                    description=f":star: **stars**: `{stars}`\n:cd: **forks**: `{forks}`\n:bangbang: **issues**: `{issues}`\n:eyes: **watching**: `{watching}`\n:satellite: **pull requests [OPEN]**: `{pull}`\n:hourglass: **last commit**: {lastcom}",
-                                    color=GLOBAL_COLOR)
 
                 embed2.set_author(name=member, icon_url=member.display_avatar.url)
                 await inter.send(embed=embed2)
+
+            except Exception as error:
+                await inter.send("The pypi command is not working.")
+
+        elif language == "C#":
+            get_data = await parsing_nuget(library)
+
+            last_version = get_data['last_version']
+            total_downloads = get_data['total_downloads']
+
+            embed1 = disnake.Embed(
+                title=f"NuGet {library} Information",
+                description=f":floppy_disk: **Latest Version**: `{last_version}`\n:champagne_glass: **Total downloads**: `{total_downloads}`",
+                color=0x9b4993)
+            embed1.set_author(name=member, icon_url=member.display_avatar.url)
+            await inter.send(embed=embed1)
+
+        elif language == "JS":
+            get_data = await parsing_npm(library)
+
+            last_version = get_data['last_version']
+            downloads = get_data["downloads"]
+
+            embed1 = disnake.Embed(
+                title=f"NPM {library} Statistics",
+                description=f":gear: **Latest Version**: `{last_version}`\n:pencil:**Downloads last day**: {downloads[0]}\n:pencil:**Downloads last week**: {downloads[1]}\n:pencil:**Downloads last month**: {downloads[2]}",
+                color=0xf5f50a
+            )
+            embed1.set_author(name=member, icon_url=member.display_avatar.url)
+            await inter.send(embed=embed1)
+
     @commands.slash_command(
         name="stats_2",
         description="Shows monthly library downloads. (only for python libraries)",)
