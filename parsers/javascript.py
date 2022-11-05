@@ -37,7 +37,5 @@ async def parsing_npm(library: str) -> dict:
             version = data["dist-tags"]["latest"]
     return {
         "last_version": version,
-        "last_day": day,
-        "last_week": week,
-        "last_month": month,
+        "downloads": (day, week, month)
     }
