@@ -119,7 +119,7 @@ class Stats(commands.Cog):
             await inter.send(embed=embed1)
             
         else:
-            await inter.send("you used the wrong argument.")
+            await inter.send(f"you used the wrong argument.\n{language}\n{platform}\n{library}")
                              
     @commands.slash_command(
         name="stats_2",
