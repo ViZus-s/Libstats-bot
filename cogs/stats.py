@@ -47,6 +47,7 @@ class Stats(commands.Cog):
         library: str = commands.Param(autocomplete=autocomplete_library),):
 
         member = inter.author
+        platform = platform.lower()
         await inter.response.defer()
 
         if platform == 'github':
