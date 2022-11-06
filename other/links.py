@@ -195,7 +195,6 @@ https://discordjs.guide/#before-you-begin
 **Documentation:**
 https://discord.js.org/#/docs
 
-
 `Extensions:`
 **RPC:**
 https://www.npmjs.com/package/discord-rpc
@@ -203,7 +202,7 @@ https://www.npmjs.com/package/discord-rpc
 `Discord:`
 **Support server:**
 https://discord.gg/djs
-``
+
 """,
 
     "eris":
