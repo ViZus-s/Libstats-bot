@@ -180,12 +180,53 @@ https://discord.gg/dsharpplus
     # JS libs
     "discord.js":
 """
-in the process
+`GitHub & Website & npm:`
+**GitHub:**
+https://github.com/discordjs/discord.js
+**Website:**
+https://discord.js.org
+**npm:**
+https://www.npmjs.com/package/discord.js
+
+`Guide & Documentation`
+**Guide:**
+https://discordjs.guide
+https://discordjs.guide/#before-you-begin
+**Documentation:**
+https://discord.js.org/#/docs
+
+
+`Extensions:`
+**RPC:**
+https://www.npmjs.com/package/discord-rpc
+
+`Discord:`
+**Support server:**
+https://discord.gg/djs
+``
 """,
 
     "eris":
 """
-in the process
+`GitHub & Website & npm:`
+**GitHub:**
+https://github.com/abalabahaha/eris
+**Website:**
+https://abal.moe/Eris
+**npm:**
+https://npmjs.com/package/eris
+
+`Documentation:`
+**Getting started:**
+https://abal.moe/Eris/docs/0.17.1/getting-started
+**FaQ:**
+https://abal.moe/Eris/docs/0.17.1/faq
+**Reference:**
+https://abal.moe/Eris/docs/0.17.1/reference
+
+`Discord:`
+**Support server:**
+https://discord.com/invite/eris
 """
 }
 
