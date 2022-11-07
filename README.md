@@ -13,6 +13,7 @@ Each time we will experiment to make the bot more convenient, optimized, faster.
 If you want to support this work, you can leave a star :)
 
 Author: ViZus#9667
+
 🇷🇺
 
 Данный бот позволяет просматривать статистику библиотек прямо в дискорде.
