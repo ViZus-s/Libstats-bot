@@ -11,10 +11,13 @@ Each time we will experiment to make the bot more convenient, optimized, faster.
 
 If you want to support this work, you can leave a star :)
 
-Author: ViZus#9667
+Author: vizus
 
 ### upd 26.02.23:
 As you can see, the bot has not been working since last year, I will inform you about turning the bot back on in a week.
+
+### upd 10.03.24:
+There is a chance for a return this summer.
 
 🇷🇺
 
@@ -28,7 +31,10 @@ As you can see, the bot has not been working since last year, I will inform you 
 
 Если вы хотите поддержать данную работу, можете оставить звезду на репозитории :)
 
-Автор: ViZus#9667
+Автор: vizus
 
 ### новость 26.02.23:
 Можно было заметить, что бот уже длительное время в отключке. Я не могу сейчас его поддерживать, но за неделю до его включения - я вам сообщу.
+
+### новость 10.03.24:
+Этим летом, есть шанс на возвращение.
